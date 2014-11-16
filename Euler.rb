@@ -1,6 +1,7 @@
 
 
 #
+# TODO: eventually replace with PrimeSet.rb and NumberUtils.rb
 #
 # Methods for calculating, caching, and iterating thru prime numbers.
 #

@@ -2,18 +2,28 @@
 #
 
 
-def squareOfSums(x)
-    sum = (x+1) * x / 2
-    return sum * sum
-end
+require 'minitest/autorun'
 
-def sumOfSquares(x)
-    if (x == 1)
-        return 1
-    else
-        return x*x + sumOfSquares(x-1)
+class TestProb6 < Minitest::Unit::TestCase
+
+    def log(m, s)
+        puts "#{self.class.name}.#{m}: #{s}"
     end
-end
+
+
+    def squareOfSums(x)
+        sum = (x+1) * x / 2     
+        return sum * sum
+    end
+    
+    def sumOfSquares(x)
+        if (x == 1)
+            return 1
+        else
+            return x*x + sumOfSquares(x-1)
+        end
+    end
+
 
 # 1
 # 1 + 3
@@ -37,5 +47,13 @@ end
 # 2x-1 * 1 (x - (x-1) )
 #
 
-puts "the diff is: #{ squareOfSums(100) - sumOfSquares(100) }"
+    def test_sumOfSquares
+
+        ans = squareOfSums(100) - sumOfSquares(100)
+        log(__method__, "the diff between squareOfSums and sumOfSquares up to 100 is: #{ ans }")
+        assert_equal 25164150, ans
+           
+    end
+
+end
 
